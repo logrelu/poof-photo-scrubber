@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Assemble site (page + signed shortcuts)
         run: |
-          mkdir _site && cp site/index.html _site/
+          mkdir _site && cp -R site/* _site/
           for f in build/*.shortcut; do case "$f" in *unsigned*) ;; *) cp "$f" _site/;; esac; done
           ls -l _site
       - uses: actions/upload-pages-artifact@v3
