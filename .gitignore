@@ -1,0 +1,4 @@
+build/*.unsigned.shortcut
+__pycache__/
+out/
+.DS_Store
