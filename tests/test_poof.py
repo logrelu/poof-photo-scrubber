@@ -63,6 +63,7 @@ class Builder(unittest.TestCase):
         self.assertEqual(d["WFWorkflowInputContentItemClasses"], ["WFImageContentItem"])
         self.assertEqual(plistlib.loads(bs.poof_latest().dumps())["WFWorkflowTypes"], [])
 
+    @unittest.skipUnless(__import__("shutil").which("shortcuts"), "needs macOS shortcuts CLI")
     def test_signing(self):
         paths = bs.build(sign=True)
         for p in paths:
