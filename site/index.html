@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Poof - photos that forget</title>
+<style>
+:root{--bg:#fbf9ff;--ink:#1b1530;--lilac:#b9a7ff;--mint:#8cf5d0;--peach:#ffc2a8;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#14101f;--ink:#f3eeff;--card:#201a33}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 -apple-system,system-ui,sans-serif}
+main{max-width:640px;margin:0 auto;padding:32px 16px 64px}
+.bubble{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,var(--lilac) 60%,#8f7cf0);display:grid;place-items:center;font-size:44px;animation:float 3s ease-in-out infinite;margin:8px 0 16px}
+@keyframes float{50%{transform:translateY(-10px)}}@media(prefers-reduced-motion:reduce){.bubble{animation:none}}
+h1{font-size:44px;margin:0;line-height:1.1}.sub{opacity:.75;margin:.4em 0 24px}
+.card{background:var(--card);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 4px 18px #7b5cff22}
+.leak{display:flex;gap:10px;flex-wrap:wrap}.chip{padding:6px 12px;border-radius:99px;background:var(--peach);color:#1b1530;font-size:15px;transition:.6s}
+.gone .chip{opacity:0;transform:scale(.3) translateY(-20px);filter:blur(6px)}
+button,a.btn{font:inherit;font-weight:600;border:0;border-radius:14px;padding:12px 18px;background:var(--ink);color:var(--bg);text-decoration:none;display:inline-block;cursor:pointer;min-height:44px}
+a.btn.mint{background:var(--mint);color:#1b1530}ol{padding-left:1.2em}li{margin:.5em 0}small{opacity:.7}
+</style></head><body><main>
+<div class="bubble" aria-hidden="true">🫧</div>
+<h1>Poof!</h1><p class="sub">Share a photo. Where &amp; when go <em>poof</em>. Your library still remembers.</p>
+
+<div class="card" id="demo"><b>This photo is telling on you:</b>
+<div class="leak" style="margin:12px 0"><span class="chip">📍 Blue Bottle Cafe</span><span class="chip">🕒 Sun 3:12pm</span><span class="chip">📱 iPhone 16 Pro</span></div>
+<button onclick="document.getElementById('demo').classList.toggle('gone')">Poof it</button></div>
+
+<div class="card"><b>Get it (no app, 3 taps)</b><ol>
+<li>Tap each shortcut, then <b>Add Shortcut</b>.<br>
+<a class="btn mint" href="../build/Poof%20%26%20Share.shortcut">Poof &amp; Share</a>
+<a class="btn mint" href="../build/Poof%20Latest.shortcut">Poof Latest</a>
+<a class="btn mint" href="../build/Poof%20Pick.shortcut">Poof Pick</a>
+<a class="btn mint" href="../build/Poof%20Peek.shortcut">Poof Peek</a></li>
+<li>Photos → Share → scroll Actions → <b>Poof &amp; Share</b> (tap <i>Edit Actions</i> to pin it first).</li>
+<li>Pick WhatsApp, Messages, ChatGPT... as usual. Clean copy goes out.</li></ol></div>
+
+<div class="card"><b>For AI chatbots &amp; in-app pickers</b>
+<p>Set <i>Poof Latest</i> on the Action Button, or Shortcuts → Automation → <i>App opens</i> (ChatGPT, Claude, WhatsApp) → Run <i>Poof Latest</i> → <i>Run Immediately</i>. Then just paste.</p></div>
+
+<div class="card"><b>Honest fine print</b>
+<p><small>Poof scrubs metadata (place, time, device), not what's visible in the picture. iOS can't let us intercept sharing inside other apps' own photo pickers, so use the clipboard flow there. Your Photos originals are never touched.</small></p></div>
+</main></body></html>

@@ -4,3 +4,5 @@ build:
 	python3 tools/build_shortcuts.py
 fixtures:
 	python3 tools/make_fixtures.py
+mac-qa:
+	tools/mac_qa.sh
