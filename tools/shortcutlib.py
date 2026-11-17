@@ -72,9 +72,13 @@ class Shortcut:
 
     def to_plist(self) -> dict:
         d = {
-            "WFWorkflowClientVersion": "2900.0.1",
+            # Keys mirror Apple's own gallery shortcuts (WorkflowKit Gallery.bundle, iOS 26.4)
+            "WFQuickActionSurfaces": [],
+            "WFWorkflowClientVersion": "4018.0.4",
+            "WFWorkflowHasOutputFallback": False,
             "WFWorkflowMinimumClientVersion": 900,
-            "WFWorkflowMinimumClientRelease": 900,
+            "WFWorkflowMinimumClientVersionString": "900",
+            "WFWorkflowOutputContentItemClasses": [],
             "WFWorkflowIcon": {"WFWorkflowIconStartColor": COLORS[self.color],
                                "WFWorkflowIconGlyphNumber": GLYPHS[self.glyph]},
             "WFWorkflowImportQuestions": [],
