@@ -94,22 +94,53 @@ td:last-child small{text-align:right}
 .badge.opt{border:1px solid var(--line);color:var(--mute)}
 @media(max-width:520px){.dlrow{grid-template-columns:1fr}}
 
-/* phones */
-.phones{display:flex;gap:18px;overflow-x:auto;padding:6px 24px 22px;margin:24px -24px 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.step{flex:0 0 212px;scroll-snap-align:center}
-.phone{width:212px;height:400px;border-radius:30px;background:#0e0d0c;padding:7px;box-shadow:0 14px 30px -12px #0006}
-.screen{width:100%;height:100%;border-radius:24px;background:#f2f2f7;color:#111;position:relative;overflow:hidden;font:12px/1.35 var(--sans)}
-.island{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:60px;height:16px;border-radius:9px;background:#0e0d0c;z-index:3}
-.sheet{position:absolute;left:8px;right:8px;bottom:8px;background:#fff;border-radius:18px;padding:12px;box-shadow:0 -2px 18px #0002}
-.sheet h4{margin:0 0 4px;font:600 13px var(--sans);text-align:center}
-.sheet p{margin:0 0 10px;text-align:center;color:#6b6b70;font-size:11px}
-.btnb{background:#0a84ff;color:#fff;border-radius:11px;padding:9px;text-align:center;font-weight:600;margin-top:6px}
-.btnb.sec{background:#e9e9ee;color:#0a84ff}
-.hl{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:12px}
-.row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #eee}
+/* phones (iOS-style illustrations) */
+.phones{display:flex;gap:20px;overflow-x:auto;padding:6px 24px 22px;margin:24px -24px 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.step{flex:0 0 226px;scroll-snap-align:center}
+.phone{width:226px;height:458px;border-radius:40px;background:#111;padding:8px;box-shadow:0 0 0 1.5px #3a3a3c inset,0 16px 32px -14px #0007}
+.screen{width:100%;height:100%;border-radius:32px;background:#f2f2f7;color:#000;position:relative;overflow:hidden;font:12px/1.3 -apple-system,"SF Pro Text",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.sb{position:absolute;top:0;left:0;right:0;height:40px;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:6px 22px 0;font:600 11.5px -apple-system,system-ui,sans-serif}
+.sb i{display:inline-block;width:20px;height:9px;border:1.3px solid currentColor;border-radius:3px;position:relative;opacity:.9}
+.sb i::after{content:"";position:absolute;inset:1.5px 4px 1.5px 1.5px;background:currentColor;border-radius:1px}
+.island{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:62px;height:18px;border-radius:10px;background:#000;z-index:6}
+.homebar{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:76px;height:4px;border-radius:3px;background:#000;opacity:.85;z-index:6}
+.blue{color:#007aff}
+.dim{position:absolute;inset:0;background:rgba(0,0,0,.32);z-index:2}
+.alert{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:164px;background:rgba(246,246,248,.97);border-radius:14px;text-align:center;overflow:hidden}
+.alert .t{padding:14px 12px 12px;font-weight:600;font-size:12.5px;line-height:1.3}
+.alert .b{display:grid;grid-template-columns:1fr 1fr;border-top:.5px solid #c6c6c8}
+.alert .b span{padding:11px 0;color:#007aff;font-size:13px}.alert .b span+span{border-left:.5px solid #c6c6c8;font-weight:600}
+.page{position:absolute;inset:40px 0 0 0;background:#fff;padding:16px 14px}
+.page .h{font:600 17px ui-serif,"New York",Georgia,serif;margin-bottom:8px}
+.page .ln{height:7px;border-radius:4px;background:#e5e5ea;margin:6px 0}
+.page .pill{margin-top:12px;display:inline-block;background:#e4572e;color:#fff;padding:7px 12px;border-radius:99px;font-weight:600;font-size:10.5px}
+.safbar{position:absolute;left:10px;right:10px;bottom:20px;height:34px;border-radius:17px;background:rgba(235,235,240,.95);display:grid;place-items:center;font-size:11px;color:#3a3a3c;box-shadow:0 1px 8px #0002}
+.nav{position:absolute;top:36px;left:0;right:0;height:30px;display:flex;justify-content:space-between;align-items:center;padding:0 14px;font-size:13px}
+.nav b{font-weight:600;color:#000}
+.grp{background:#fff;border-radius:11px;margin:0 12px;overflow:hidden}
+.row{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:.5px solid #e5e5ea}
 .row:last-child{border:0}
-.ico{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;color:#fff;font-size:12px;flex:none}
-.cap{margin:12px 0 0;font-size:14.5px;line-height:1.4}.cap b{display:block;font-size:13px;color:var(--accent);letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.ico{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;color:#fff;font-size:12px;flex:none}
+.sc-head{display:flex;flex-direction:column;align-items:center;text-align:center;padding:78px 20px 14px}
+.sc-ico{width:56px;height:56px;border-radius:14px;background:linear-gradient(145deg,#c08cf5,#7d4fe0);display:grid;place-items:center;color:#fff;font-size:26px;box-shadow:0 6px 14px -6px #7d4fe088}
+.sc-head b{font:700 18px -apple-system,system-ui,sans-serif;margin-top:10px}
+.sc-head span{color:#6c6c70;font-size:11.5px;margin-top:3px}
+.bigbtn,.bigbtn.hl{position:absolute !important;left:14px;right:14px;bottom:22px;background:#007aff;color:#fff;font-weight:600;font-size:14px;text-align:center;padding:12px;border-radius:14px}
+.share{position:absolute;left:0;right:0;bottom:0;top:120px;background:#f2f2f7;border-radius:18px 18px 0 0;box-shadow:0 -4px 20px #0003;z-index:3;padding:10px 0 0}
+.share .grab{width:34px;height:4px;border-radius:3px;background:#c7c7cc;margin:0 auto 8px}
+.share .top{display:flex;gap:9px;align-items:center;padding:2px 14px 10px}
+.share .th{width:34px;height:34px;border-radius:7px;background:linear-gradient(#3b4a7a,#d98a6c 60%,#f3c98b);flex:none}
+.share .top b{display:block;font-size:12px}.share .top small{color:#6c6c70;font-size:10.5px}
+.apps{display:flex;gap:11px;padding:2px 14px 10px;overflow:hidden}
+.apps div{width:38px;text-align:center;font-size:8.5px;color:#3a3a3c}
+.apps div::before{content:"";display:block;width:38px;height:38px;border-radius:50%;margin-bottom:3px;background:var(--c)}
+.hl{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:12px;position:relative;z-index:4}
+.tg{width:30px;height:18px;border-radius:10px;background:#34c759;position:relative;flex:none}
+.tg::after{content:"";position:absolute;right:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff}
+.tg.off{background:#e5e5ea}.tg.off::after{right:auto;left:2px}
+.sec{font:600 10px -apple-system,system-ui,sans-serif;color:#6c6c70;text-transform:uppercase;letter-spacing:.04em;margin:12px 24px 5px}
+.grip{color:#c7c7cc;font-size:14px;letter-spacing:-2px}
+.cap{margin:12px 0 0;font-size:14.5px;line-height:1.4}.cap b{display:block;font-size:12.5px;color:var(--accent);letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
 .imgtrip{margin:10px 0 0;font:italic 14px var(--serif);color:var(--mute)}
 
 /* compat */
@@ -243,34 +274,51 @@ footer p{max-width:38em}
 
     <div class="phones" role="list" aria-label="Install steps">
       <div class="step" role="listitem">
-        <div class="phone"><div class="screen"><div class="island"></div>
-          <div class="sheet"><h4>Download “Poof &amp; Share.shortcut”?</h4><p>poof-photo-scrubber site</p><div class="btnb hl">Download</div><div class="btnb sec">Cancel</div></div></div></div>
-        <p class="cap"><b>1 · Download</b>Tap a Download button, then <i>Download</i> when Safari asks.</p>
+        <div class="phone"><div class="screen"><div class="sb"><span>9:41</span><i></i></div><div class="island"></div><div class="homebar"></div>
+          <div class="page"><div class="h">poof.</div><div class="ln" style="width:90%"></div><div class="ln" style="width:72%"></div><div class="ln" style="width:80%"></div><div class="pill">Download</div></div>
+          <div class="safbar">logrelu.github.io</div><div class="dim"></div>
+          <div class="alert"><div class="t">Do you want to download “Poof &amp; Share.shortcut”?</div><div class="b"><span>Cancel</span><span class="hl" style="outline-offset:-2px;border-radius:0">Download</span></div></div></div></div>
+        <p class="cap"><b>1 · Download</b>Tap a Download button. When Safari asks, tap <i>Download</i>.</p>
       </div>
       <div class="step" role="listitem">
-        <div class="phone"><div class="screen"><div class="island"></div>
-          <div style="padding:34px 12px 0"><div style="font:600 15px var(--sans);text-align:center;margin-bottom:10px">Poof &amp; Share</div>
-          <div style="background:#fff;border-radius:12px"><div class="row"><span class="ico" style="background:#34c759">⟲</span>Convert Image</div><div class="row"><span class="ico" style="background:#ff9f0a">↗</span>Share</div></div></div>
-          <div class="sheet" style="bottom:8px"><div class="btnb hl" style="margin:0">Add Shortcut</div></div></div></div>
+        <div class="phone"><div class="screen"><div class="sb"><span>9:41</span><i></i></div><div class="island"></div><div class="homebar"></div>
+          <div class="nav"><span class="blue">Cancel</span><span></span></div>
+          <div class="sc-head"><div class="sc-ico">✦</div><b>Poof &amp; Share</b><span>Removes location, date and device info before you share.</span></div>
+          <div class="grp"><div class="row"><span class="ico" style="background:#34c759">↻</span>Convert Image</div><div class="row"><span class="ico" style="background:#ff9f0a">↗</span>Share</div></div>
+          <div class="bigbtn hl">Add Shortcut</div></div></div>
         <p class="cap"><b>2 · Add</b>Open the downloaded file (Safari's download arrow, or Files → Downloads). Tap <i>Add Shortcut</i>.</p>
       </div>
       <div class="step" role="listitem">
-        <div class="phone"><div class="screen"><div class="island"></div>
-          <div style="padding:34px 10px 0"><div style="font:600 14px var(--sans);text-align:center;margin-bottom:8px">Edit Actions</div>
-          <div style="background:#fff;border-radius:12px">
-            <div class="row hl" style="margin:2px"><span class="ico" style="background:#af52de">✦</span><b style="flex:1">Poof &amp; Share</b><span style="color:#34c759;font-weight:700">●</span></div>
-            <div class="row"><span class="ico" style="background:#8e8e93">⎘</span><span style="flex:1">Copy</span><span style="color:#34c759;font-weight:700">●</span></div>
-            <div class="row"><span class="ico" style="background:#8e8e93">♥</span><span style="flex:1">Add to Favourites</span><span style="color:#c7c7cc">○</span></div></div></div></div></div>
-        <p class="cap"><b>3 · Pin</b>Photos → Share → scroll Actions → <i>Edit Actions</i>. Switch Poof &amp; Share on and drag it to the top.</p>
+        <div class="phone"><div class="screen" style="background:#1c1c1e"><div class="sb"><span style="color:#fff">9:41</span><i></i></div><div class="island"></div><div class="homebar"></div>
+          <div style="position:absolute;inset:40px 0 0;background:linear-gradient(#3b4a7a,#d98a6c 60%,#f3c98b)"></div>
+          <div class="share"><div class="grab"></div>
+            <div class="top"><div class="th"></div><div><b>1 Photo Selected</b><small>Options ›</small></div></div>
+            <div class="apps"><div style="--c:#1c8cff">AirDrop</div><div style="--c:#34c759">Messages</div><div style="--c:#25d366">WhatsApp</div><div style="--c:#0a84ff">Mail</div></div>
+            <div class="grp"><div class="row"><span class="ico" style="background:#8e8e93">⎘</span>Copy</div><div class="row"><span class="ico" style="background:#8e8e93">＋</span>Add to Album</div><div class="row hl" style="margin:2px;border-radius:9px;background:#fff"><span class="blue">Edit Actions…</span></div></div>
+          </div></div></div>
+        <p class="cap"><b>3 · Open Edit Actions</b>In Photos, pick a photo and tap Share. Scroll to the bottom of the actions and tap <i>Edit Actions…</i></p>
       </div>
       <div class="step" role="listitem">
-        <div class="phone"><div class="screen"><div class="island"></div>
-          <div style="padding:34px 10px 0"><div style="height:120px;border-radius:12px;background:linear-gradient(#3b4a7a,#d98a6c 60%,#f3c98b)"></div></div>
-          <div class="sheet"><div class="row hl" style="background:#fff"><span class="ico" style="background:#af52de">✦</span><b style="flex:1">Poof &amp; Share</b></div><div class="row"><span class="ico" style="background:#8e8e93">⎘</span>Copy</div></div></div></div>
-        <p class="cap"><b>4 · Use</b>Pick a photo, tap Share, tap <i>Poof &amp; Share</i>. Then send it anywhere as usual.</p>
+        <div class="phone"><div class="screen"><div class="sb"><span>9:41</span><i></i></div><div class="island"></div><div class="homebar"></div>
+          <div class="nav"><span></span><b>Edit Actions</b><span class="blue" style="font-weight:600">Done</span></div>
+          <div class="sec" style="margin-top:78px">Favorites</div>
+          <div class="grp"><div class="row hl" style="background:#fff;margin:2px;border-radius:9px"><span class="ico" style="background:linear-gradient(145deg,#c08cf5,#7d4fe0)">✦</span><b style="flex:1;font-weight:600">Poof &amp; Share</b><span class="grip">≡</span></div><div class="row"><span class="ico" style="background:#8e8e93">⎘</span><span style="flex:1">Copy</span><span class="grip">≡</span></div></div>
+          <div class="sec">Actions</div>
+          <div class="grp"><div class="row"><span class="ico" style="background:#8e8e93">＋</span><span style="flex:1">Add to Album</span><div class="tg"></div></div><div class="row"><span class="ico" style="background:#8e8e93">♥</span><span style="flex:1">Favorite</span><div class="tg off"></div></div></div></div></div>
+        <p class="cap"><b>4 · Pin it</b>Switch <i>Poof &amp; Share</i> on, and add it to Favorites so it stays at the top. Tap <i>Done</i>.</p>
+      </div>
+      <div class="step" role="listitem">
+        <div class="phone"><div class="screen" style="background:#1c1c1e"><div class="sb"><span style="color:#fff">9:41</span><i></i></div><div class="island"></div><div class="homebar"></div>
+          <div style="position:absolute;inset:40px 0 0;background:linear-gradient(#3b4a7a,#d98a6c 60%,#f3c98b)"></div>
+          <div class="share"><div class="grab"></div>
+            <div class="top"><div class="th"></div><div><b>1 Photo Selected</b><small>Options ›</small></div></div>
+            <div class="apps"><div style="--c:#1c8cff">AirDrop</div><div style="--c:#34c759">Messages</div><div style="--c:#25d366">WhatsApp</div><div style="--c:#0a84ff">Mail</div></div>
+            <div class="grp"><div class="row hl" style="margin:2px;border-radius:9px;background:#fff"><span class="ico" style="background:linear-gradient(145deg,#c08cf5,#7d4fe0)">✦</span><b style="flex:1;font-weight:600">Poof &amp; Share</b></div><div class="row"><span class="ico" style="background:#8e8e93">⎘</span>Copy</div><div class="row"><span class="ico" style="background:#8e8e93">＋</span>Add to Album</div></div>
+          </div></div></div>
+        <p class="cap"><b>5 · Use</b>Next time: Share → <i>Poof &amp; Share</i>. Then pick Messages, WhatsApp, AirDrop… as usual.</p>
       </div>
     </div>
-    <p class="imgtrip">These are illustrations, not screenshots. Exact wording changes slightly between iOS versions.</p>
+    <p class="imgtrip">These are drawn illustrations, not screenshots. Layout and wording shift slightly between iOS versions.</p>
   </section>
 
   <!-- E. Compatibility -->
