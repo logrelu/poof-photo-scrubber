@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Poof — send the photo, not where and when</title>
+<title>Poof — your photos shouldn’t tell strangers where you live</title>
 <meta name="description" content="A free iPhone shortcut that strips location, date and device from a photo the moment you share it. No app. Your library keeps its memories.">
 <meta name="theme-color" content="#f3eee4">
 <style>
@@ -123,6 +123,10 @@ td:last-child small{text-align:right}
 .box code,.fine code,td code{font:13px var(--mono);background:var(--line);padding:1px 5px;border-radius:4px}
 ul.clean{margin:8px 0 0;padding-left:1.1em;color:var(--mute);font-size:15.5px}ul.clean li{margin:5px 0}
 .links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:15px}
+details{border-top:1px solid var(--line);padding:14px 0}details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:28px}
+summary::-webkit-details-marker{display:none}summary::after{content:"+";font:400 22px/1 var(--serif);color:var(--accent)}details[open] summary::after{content:"–"}
+details p{margin:8px 0 0;color:var(--mute);font-size:16px}
 footer{padding:56px 0 48px;color:var(--mute);font-size:14px;border-top:1px solid var(--line);margin-top:56px}
 footer p{max-width:38em}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -132,16 +136,16 @@ footer p{max-width:38em}
 <div class="wrap">
   <header>
     <a class="logo" href="#">poof<i>.</i></a>
-    <nav><a href="#proof">Before/after</a><a href="#get">Get it</a><a href="#trust">Verify</a></nav>
+    <nav><a href="#proof">Before/after</a><a href="#get">Get it</a><a href="#trust">Verify</a><a href="#faq">FAQ</a></nav>
   </header>
 
-  <h1>Send the photo.<br><em>Not where and when.</em></h1>
-  <p class="lede">A free iPhone shortcut that wipes where, when and which phone from a photo the moment you share it. Your library keeps every memory.</p>
+  <h1>Your photos shouldn’t tell strangers <em>where you live.</em></h1>
+  <p class="lede">Poof removes hidden location, date and device information before you share a photo. Share the photo. Keep the memory. Lose the location. Your originals stay untouched.</p>
   <a class="cta" href="#get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 20h14"/></svg>
     Get Poof for iPhone
   </a>
-  <p class="note">Free · no app · no account · nothing leaves your phone</p>
+  <p class="note">Free · iPhone Shortcut · No account · Takes about a minute to install</p>
 
   <div class="stage" id="stage">
     <div class="polaroid">
@@ -206,6 +210,7 @@ footer p{max-width:38em}
         <tr><td>Date &amp; time<small>When it was taken or edited</small></td><td><span class="r gone2">Removed</span></td></tr>
         <tr><td>Camera &amp; device<small>Make, model, lens, software</small></td><td><span class="r gone2">Removed</span></td></tr>
         <tr><td>Original photo in your library<small>Poof works on a copy</small></td><td><span class="r keep">Preserved</span></td></tr>
+        <tr><td>Captions, keywords &amp; edit history<small>Apple says its switch strips all metadata. We have not yet verified these individually on a phone.</small></td><td><span class="r same">Verifying</span></td></tr>
         <tr><td>Faces &amp; objects in the picture</td><td><span class="r same">Unchanged</span></td></tr>
         <tr><td>Visible text in the image<small>Street signs, screens, badges</small></td><td><span class="r same">Unchanged</span></td></tr>
       </tbody>
@@ -323,6 +328,18 @@ footer p{max-width:38em}
       <a href="https://github.com/logrelu/poof-photo-scrubber/blob/main/docs/QA_WORKFLOW.md">QA workflow</a>
       <a href="sample/poof-sample.jpg" download>Sample test photo</a>
     </div>
+  </section>
+
+  <section id="faq">
+    <h2>Questions.</h2>
+    <details><summary>Do I need all four shortcuts?</summary><p>No. Install <b>Poof &amp; Share</b>. The other three are optional extras.</p></details>
+    <details><summary>Does it change my original photo?</summary><p>No. Poof works on a copy it makes while sharing. Your library keeps its location, date and everything else.</p></details>
+    <details><summary>Will the photo look worse?</summary><p>It is re-saved without the hidden data, so the file size can differ slightly. We are checking image quality and orientation on real devices and will report results here.</p></details>
+    <details><summary>Why a Shortcut and not an app?</summary><p>Shortcuts is already on your iPhone, so there is nothing to install from the App Store and no account. It also keeps everything on your device.</p></details>
+    <details><summary>Does it need internet?</summary><p>It shouldn't. Every step runs on the phone. We will confirm this in airplane mode during device testing.</p></details>
+    <details><summary>What is “metadata” (EXIF)?</summary><p>Hidden facts saved inside a photo file: where it was taken, when, and with which phone. You can't see them in the picture, but apps and people who receive the file can.</p></details>
+    <details><summary>Do I need Poof Peek?</summary><p>Not to use Poof. It's for checking: run it on a photo before and after to see what was hiding there.</p></details>
+    <p class="fine" style="margin-top:22px">Found a leak, a bug or something confusing? <a href="https://github.com/logrelu/poof-photo-scrubber/issues/new">Tell us on GitHub</a>. A metadata leak is treated as a release-blocking bug.</p>
   </section>
 
   <footer>
