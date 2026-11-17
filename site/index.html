@@ -1,33 +1,164 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Poof - photos that forget</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Poof — share the photo, keep the place</title>
+<meta name="description" content="A free iPhone shortcut that strips location, date and device from a photo the moment you share it. No app. Your library keeps its memories.">
+<meta name="theme-color" content="#f3eee4">
 <style>
-:root{--bg:#fbf9ff;--ink:#1b1530;--lilac:#b9a7ff;--mint:#8cf5d0;--peach:#ffc2a8;--card:#fff}
-@media(prefers-color-scheme:dark){:root{--bg:#14101f;--ink:#f3eeff;--card:#201a33}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 -apple-system,system-ui,sans-serif}
-main{max-width:640px;margin:0 auto;padding:32px 16px 64px}
-.bubble{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,var(--lilac) 60%,#8f7cf0);display:grid;place-items:center;font-size:44px;animation:float 3s ease-in-out infinite;margin:8px 0 16px}
-@keyframes float{50%{transform:translateY(-10px)}}@media(prefers-reduced-motion:reduce){.bubble{animation:none}}
-h1{font-size:44px;margin:0;line-height:1.1}.sub{opacity:.75;margin:.4em 0 24px}
-.card{background:var(--card);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 4px 18px #7b5cff22}
-.leak{display:flex;gap:10px;flex-wrap:wrap}.chip{padding:6px 12px;border-radius:99px;background:var(--peach);color:#1b1530;font-size:15px;transition:.6s}
-.gone .chip{opacity:0;transform:scale(.3) translateY(-20px);filter:blur(6px)}
-button,a.btn{font:inherit;font-weight:600;border:0;border-radius:14px;padding:12px 18px;background:var(--ink);color:var(--bg);text-decoration:none;display:inline-block;cursor:pointer;min-height:44px}
-a.btn.mint{background:var(--mint);color:#1b1530}ol{padding-left:1.2em}li{margin:.5em 0}small{opacity:.7}
-</style></head><body><main>
-<div class="bubble" aria-hidden="true">🫧</div>
-<h1>Poof!</h1><p class="sub">Share a photo. Where &amp; when go <em>poof</em>. Your library still remembers.</p>
+:root{
+  --paper:#f3eee4; --paper2:#ebe4d6; --ink:#1c1915; --mute:#6f675b; --line:#d9d0bf;
+  --accent:#e4572e; --accent-ink:#fff;
+  --serif: ui-serif,"New York","Iowan Old Style",Georgia,serif;
+  --sans: -apple-system,"SF Pro Text",system-ui,sans-serif;
+  --mono: ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#16130f;--paper2:#1f1b15;--ink:#f1eadc;--mute:#a1978a;--line:#322c23;--accent:#ff7a4d;--accent-ink:#1c1915}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--sans);
+  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.wrap{max-width:680px;margin:0 auto;padding:0 24px}
+a{color:inherit}
 
-<div class="card" id="demo"><b>This photo is telling on you:</b>
-<div class="leak" style="margin:12px 0"><span class="chip">📍 Blue Bottle Cafe</span><span class="chip">🕒 Sun 3:12pm</span><span class="chip">📱 iPhone 16 Pro</span></div>
-<button onclick="document.getElementById('demo').classList.toggle('gone')">Poof it</button></div>
+/* nav */
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0 8px}
+.logo{font:600 22px/1 var(--serif);letter-spacing:-.02em;text-decoration:none}
+.logo i{font-style:italic;color:var(--accent)}
+header a.small{font-size:14px;color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
 
-<div class="card"><b>Get it (no app)</b><p><a class="btn mint" style="font-size:20px" href="Poof%20%26%20Share.shortcut">Download Poof &amp; Share</a></p>
-<ol><li>Tap the button, then <b>Download</b>.</li><li>Open the downloaded file (Safari's download arrow, or Files &rarr; Downloads) &rarr; <b>Add Shortcut</b>.</li>
-<li>Photos &rarr; Share &rarr; scroll Actions &rarr; <b>Edit Actions</b> &rarr; pin <b>Poof &amp; Share</b> to the top.</li></ol></div>
-<div class="card"><b>Extras</b><p><a class="btn" href="Poof%20Latest.shortcut">Poof Latest</a> <a class="btn" href="Poof%20Pick.shortcut">Poof Pick</a> <a class="btn" href="Poof%20Peek.shortcut">Poof Peek</a></p></div>
-<div class="card"><b>For AI chatbots &amp; in-app pickers</b>
-<p>Set <i>Poof Latest</i> on the Action Button, or Shortcuts → Automation → <i>App opens</i> (ChatGPT, Claude, WhatsApp) → Run <i>Poof Latest</i> → <i>Run Immediately</i>. Then just paste.</p></div>
+/* hero */
+h1{font:500 clamp(46px,13vw,84px)/.98 var(--serif);letter-spacing:-.035em;margin:36px 0 18px}
+h1 em{font-style:italic;color:var(--accent)}
+.lede{font-size:19px;color:var(--mute);max-width:30em;margin:0 0 30px}
 
-<div class="card"><b>Honest fine print</b>
-<p><small>Poof scrubs metadata (place, time, device), not what's visible in the picture. iOS can't let us intercept sharing inside other apps' own photo pickers, so use the clipboard flow there. Your Photos originals are never touched.</small></p></div>
-</main></body></html>
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);
+  font:600 17px var(--sans);padding:16px 26px;border-radius:999px;text-decoration:none;min-height:52px;
+  transition:transform .2s}
+.cta:active{transform:scale(.97)}
+.cta svg{width:18px;height:18px}
+.note{font-size:14px;color:var(--mute);margin:14px 0 0}
+
+/* polaroid */
+.stage{margin:56px 0 28px;display:grid;justify-items:center}
+.polaroid{width:min(300px,82%);background:#fbf8f1;padding:14px 14px 18px;border-radius:3px;
+  box-shadow:0 1px 0 #0001,0 18px 40px -14px #3a2a1a55,0 2px 6px #0002;transform:rotate(-3deg);color:#1c1915}
+.photo{aspect-ratio:1/1;border-radius:2px;overflow:hidden;display:block;width:100%}
+.slip{margin-top:14px;font:12.5px/1.9 var(--mono);letter-spacing:.01em}
+.slip div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #c9bfab;padding:0 0 1px}
+.slip b{font-weight:500;color:#8a7f6c;text-transform:uppercase;font-size:10.5px;letter-spacing:.08em}
+.slip span{transition:opacity .7s,filter .7s,letter-spacing .7s,transform .7s;display:inline-block}
+.gone .slip span{opacity:0;filter:blur(5px);letter-spacing:.4em;transform:translateY(-6px)}
+.slip em{position:absolute;opacity:0}
+.toggle{margin-top:26px;font:500 15px var(--sans);background:none;border:1.5px solid var(--ink);color:var(--ink);
+  border-radius:999px;padding:10px 20px;cursor:pointer;min-height:44px}
+.toggle:active{background:var(--ink);color:var(--paper)}
+.stage p{margin:12px 0 0;font:italic 15px var(--serif);color:var(--mute);height:1.5em}
+
+/* sections */
+section{padding:56px 0 8px;border-top:1px solid var(--line);margin-top:56px}
+h2{font:500 30px/1.1 var(--serif);letter-spacing:-.02em;margin:0 0 26px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:54px 1fr;gap:4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);font:italic 400 40px/1 var(--serif);color:var(--accent)}
+.steps b{display:block;font-weight:600;margin-bottom:2px}
+.steps span{color:var(--mute);font-size:16px}
+
+.two{display:grid;gap:14px}
+@media(min-width:620px){.two{grid-template-columns:1fr 1fr}}
+.box{background:var(--paper2);border-radius:14px;padding:20px}
+.box h3{font:600 17px var(--sans);margin:0 0 6px}
+.box p{margin:0;color:var(--mute);font-size:15.5px}
+.extras{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:6px}
+.extras a{font-size:15px;color:var(--mute)}
+
+footer{padding:56px 0 48px;color:var(--mute);font-size:14px;border-top:1px solid var(--line);margin-top:56px}
+footer p{max-width:36em}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#">poof<i>.</i></a>
+    <a class="small" href="https://github.com/logrelu/poof-photo-scrubber">source</a>
+  </header>
+
+  <h1>Share the photo.<br><em>Keep the place.</em></h1>
+  <p class="lede">A free iPhone shortcut that wipes where, when and which phone from a photo the moment you share it. Your library keeps every memory.</p>
+
+  <a class="cta" href="Poof%20%26%20Share.shortcut" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 20h14"/></svg>
+    Get Poof for iPhone
+  </a>
+  <p class="note">Free · no app · no account · nothing leaves your phone</p>
+
+  <div class="stage" id="stage">
+    <div class="polaroid">
+      <svg class="photo" viewBox="0 0 300 300" role="img" aria-label="A hazy dusk landscape">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#3b4a7a"/><stop offset=".55" stop-color="#d98a6c"/><stop offset="1" stop-color="#f3c98b"/>
+          </linearGradient>
+        </defs>
+        <rect width="300" height="300" fill="url(#sky)"/>
+        <circle cx="205" cy="168" r="30" fill="#fbe3a8"/>
+        <path d="M0 205 Q60 150 120 195 T240 180 T300 200 V300 H0Z" fill="#4b4660"/>
+        <path d="M0 240 Q80 195 160 235 T300 225 V300 H0Z" fill="#2a2740"/>
+      </svg>
+      <div class="slip" aria-live="polite">
+        <div><b>Where</b><span>37.7749° N, 122.4194° W</span></div>
+        <div><b>When</b><span>Sun 16 Nov, 5:12 pm</span></div>
+        <div><b>Phone</b><span>iPhone 16 Pro</span></div>
+      </div>
+    </div>
+    <button class="toggle" id="t" type="button">Poof it</button>
+    <p id="cap">This is what a photo says about you.</p>
+  </div>
+
+  <section>
+    <h2>Three steps, once.</h2>
+    <ol class="steps">
+      <li><div><b>Download</b><span>Tap the button above on your iPhone and choose <i>Download</i>.</span></div></li>
+      <li><div><b>Add</b><span>Open the downloaded file and tap <i>Add Shortcut</i>.</span></div></li>
+      <li><div><b>Pin</b><span>Photos → Share → scroll the actions → <i>Edit Actions</i> → move Poof &amp; Share to the top.</span></div></li>
+    </ol>
+    <p style="margin:18px 0 0;color:var(--mute)">After that: pick a photo, tap Share, tap <b style="color:var(--ink)">Poof &amp; Share</b>, then send it anywhere as usual.</p>
+  </section>
+
+  <section>
+    <h2>For chatbots &amp; in-app pickers.</h2>
+    <div class="two">
+      <div class="box"><h3>Clean clipboard</h3><p>Run <i>Poof Latest</i> from the Action Button or Back Tap. Your newest photo lands on the clipboard, scrubbed. Paste it into ChatGPT, Claude or WhatsApp.</p></div>
+      <div class="box"><h3>See what leaks</h3><p><i>Poof Peek</i> shows the place, time and phone hiding in any photo. Handy for proving it works.</p></div>
+    </div>
+    <div class="extras">
+      <a href="Poof%20Latest.shortcut" download>Poof Latest</a>
+      <a href="Poof%20Pick.shortcut" download>Poof Pick</a>
+      <a href="Poof%20Peek.shortcut" download>Poof Peek</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Poof removes metadata (location, date, device), not what is visible in the picture. iOS doesn't let any shortcut intercept sharing inside other apps' own photo pickers, so use the clipboard flow there. Your originals in Photos are never touched.</p>
+    <p>No analytics. No tracking. Open source.</p>
+  </footer>
+</div>
+<script>
+(function(){
+  var stage=document.getElementById('stage'),t=document.getElementById('t'),cap=document.getElementById('cap');
+  var gone=false;
+  function set(g){gone=g;stage.classList.toggle('gone',g);
+    t.textContent=g?'Bring it back':'Poof it';
+    cap.textContent=g?'Nothing to see. Poof.':'This is what a photo says about you.';}
+  t.addEventListener('click',function(){set(!gone)});
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setTimeout(function(){if(!gone)set(true)},2600)}
+})();
+</script>
+</body>
+</html>
