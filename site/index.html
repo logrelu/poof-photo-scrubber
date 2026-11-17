@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Poof — share the photo, keep the place</title>
+<title>Poof — send the photo, not where and when</title>
 <meta name="description" content="A free iPhone shortcut that strips location, date and device from a photo the moment you share it. No app. Your library keeps its memories.">
 <meta name="theme-color" content="#f3eee4">
 <style>
@@ -28,7 +28,7 @@ header{display:flex;justify-content:space-between;align-items:center;padding:22p
 header nav{display:flex;gap:18px;font-size:14px}
 header nav a{color:var(--mute);text-decoration:none}
 
-h1{font:500 clamp(46px,13vw,84px)/.98 var(--serif);letter-spacing:-.035em;margin:36px 0 18px}
+h1{text-wrap:balance;font:500 clamp(40px,10.5vw,76px)/1 var(--serif);letter-spacing:-.035em;margin:36px 0 18px}
 h1 em{font-style:italic;color:var(--accent)}
 .lede{font-size:19px;color:var(--mute);max-width:30em;margin:0 0 30px}
 .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);font:600 17px var(--sans);padding:16px 26px;border-radius:999px;text-decoration:none;min-height:52px;transition:transform .2s}
@@ -54,6 +54,9 @@ h3{font:600 17px var(--sans);margin:0 0 4px}
 .gone .slip span{opacity:0;filter:blur(5px);letter-spacing:.4em;transform:translateY(-6px)}
 .toggle{margin-top:26px;font:500 15px var(--sans);background:none;border:1.5px solid var(--ink);color:var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer;min-height:44px}
 .toggle:active{background:var(--ink);color:var(--paper)}
+.seg{margin-top:26px;display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px}
+.seg button{font:600 15px var(--sans);background:none;border:0;color:var(--ink);padding:9px 22px;border-radius:999px;cursor:pointer;min-height:40px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .stage p{margin:12px 0 0;font:italic 15px var(--serif);color:var(--mute);height:1.5em}
 
 /* before / after inspector */
@@ -132,7 +135,7 @@ footer p{max-width:38em}
     <nav><a href="#proof">Before/after</a><a href="#get">Get it</a><a href="#trust">Verify</a></nav>
   </header>
 
-  <h1>Share the photo.<br><em>Keep the place.</em></h1>
+  <h1>Send the photo.<br><em>Not where and when.</em></h1>
   <p class="lede">A free iPhone shortcut that wipes where, when and which phone from a photo the moment you share it. Your library keeps every memory.</p>
   <a class="cta" href="#get">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 20h14"/></svg>
@@ -153,8 +156,8 @@ footer p{max-width:38em}
         <div><b>Phone</b><span>iPhone 16 Pro</span></div>
       </div>
     </div>
-    <button class="toggle" id="t" type="button">Poof it</button>
-    <p id="cap">This is what a photo says about you.</p>
+    <div class="seg" role="group" aria-label="Before or after Poof"><button type="button" id="bBefore" aria-pressed="true">Before</button><button type="button" id="bAfter" aria-pressed="false">After</button></div>
+    <p id="cap">Before: what a photo says about you.</p>
   </div>
 
   <!-- D. Before / after -->
@@ -329,10 +332,12 @@ footer p{max-width:38em}
 </div>
 <script>
 (function(){
-  var stage=document.getElementById('stage'),t=document.getElementById('t'),cap=document.getElementById('cap'),gone=false;
-  function set(g){gone=g;stage.classList.toggle('gone',g);t.textContent=g?'Bring it back':'Poof it';cap.textContent=g?'Nothing to see. Poof.':'This is what a photo says about you.';}
-  t.addEventListener('click',function(){set(!gone)});
-  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setTimeout(function(){if(!gone)set(true)},2600)}
+  var stage=document.getElementById('stage'),bb=document.getElementById('bBefore'),ba=document.getElementById('bAfter'),cap=document.getElementById('cap'),after=false,touched=false;
+  function set(a){after=a;stage.classList.toggle('gone',a);bb.setAttribute('aria-pressed',!a);ba.setAttribute('aria-pressed',a);
+    cap.textContent=a?'After: nothing to see.':'Before: what a photo says about you.';}
+  bb.addEventListener('click',function(){touched=true;set(false)});
+  ba.addEventListener('click',function(){touched=true;set(true)});
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){setTimeout(function(){if(!touched)set(true)},2600)}
 })();
 </script>
 </body>
