@@ -238,7 +238,7 @@ footer p{max-width:38em}
       <thead><tr><th>Information</th><th>Result</th></tr></thead>
       <tbody>
         <tr><td>GPS location<small>Where the photo was taken</small></td><td><span class="r gone2">Removed</span></td></tr>
-        <tr><td>Date &amp; time<small>When it was taken or edited</small></td><td><span class="r gone2">Removed</span></td></tr>
+        <tr><td>Date &amp; time<small>When it was taken or edited. Photos may stamp the time you saved the copy.</small></td><td><span class="r gone2">Removed</span></td></tr>
         <tr><td>Camera &amp; device<small>Make, model, lens, software</small></td><td><span class="r gone2">Removed</span></td></tr>
         <tr><td>Original photo in your library<small>Poof works on a copy</small></td><td><span class="r keep">Preserved</span></td></tr>
         <tr><td>Captions, keywords &amp; edit history<small>Apple says its switch strips all metadata. We have not yet verified these individually on a phone.</small></td><td><span class="r same">Verifying</span></td></tr>
@@ -317,8 +317,14 @@ footer p{max-width:38em}
           </div></div></div>
         <p class="cap"><b>5 · Use</b>Next time: Share → <i>Poof &amp; Share</i>. Then pick Messages, WhatsApp, AirDrop… as usual.</p>
       </div>
+      <div class="step" role="listitem">
+        <div class="phone"><div class="screen"><div class="sb"><span>9:41</span><i></i></div><div class="island"></div><div class="homebar"></div>
+          <div class="page"><div class="h">poof.</div><div class="ln" style="width:90%"></div><div class="ln" style="width:72%"></div></div><div class="dim"></div>
+          <div class="alert"><div class="t">Allow “Poof &amp; Share” to share 1 Photo with other apps?</div><div class="b"><span>Don’t Allow</span><span>Allow Once</span><span class="hl" style="outline-offset:-2px;border-radius:0">Always Allow</span></div></div></div></div>
+        <p class="cap"><b>First run only · Allow</b>Apple asks once before a shortcut hands a photo to other apps. Tap <i>Always Allow</i> and it won't ask again. That's Apple's check, not Poof uploading anything.</p>
+      </div>
     </div>
-    <p class="imgtrip">These are drawn illustrations, not screenshots. Layout and wording shift slightly between iOS versions.</p>
+    <p class="imgtrip">These are drawn illustrations, not screenshots. Layout and wording shift slightly between iOS versions (and the Allow prompt may word itself differently).</p>
   </section>
 
   <!-- E. Compatibility -->
@@ -380,6 +386,8 @@ footer p{max-width:38em}
 
   <section id="faq">
     <h2>Questions.</h2>
+    <details><summary>Why does it ask “Allow … to share with other apps?”</summary><p>Apple shows this the first time a shortcut passes a photo to the Share sheet. Tap <b>Always Allow</b> and it stops asking. Poof has no upload step. You can open it in Shortcuts and read it: Convert Image, then Share.</p></details>
+    <details><summary>The cleaned photo shows today's date. Did it work?</summary><p>Yes. With the original date removed, Photos shows the time the copy was saved instead. Check that camera and location are empty too.</p></details>
     <details><summary>Do I need all four shortcuts?</summary><p>No. Install <b>Poof &amp; Share</b>. The other three are optional extras.</p></details>
     <details><summary>Does it change my original photo?</summary><p>No. Poof works on a copy it makes while sharing. Your library keeps its location, date and everything else.</p></details>
     <details><summary>Will the photo look worse?</summary><p>It is re-saved without the hidden data, so the file size can differ slightly. We are checking image quality and orientation on real devices and will report results here.</p></details>
