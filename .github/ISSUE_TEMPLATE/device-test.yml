@@ -4,7 +4,7 @@ labels: [device-test]
 body:
   - type: markdown
     attributes:
-      value: "Steps: take a photo, run Poof Peek on it, share it with Poof & Share to yourself in Messages, save the received copy and run Poof Peek on that."
+      value: "Steps: take a photo, run Poof-Peek on it, share it with Poof to yourself in Messages, save the received copy and run Poof-Peek on that."
   - type: input
     id: ios
     attributes: { label: iOS version, placeholder: "26.1" }

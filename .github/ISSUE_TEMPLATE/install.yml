@@ -8,7 +8,7 @@ body:
     validations: { required: true }
   - type: dropdown
     id: which
-    attributes: { label: Which shortcut?, options: [Poof & Share, Poof Latest, Poof Pick, Poof Peek] }
+    attributes: { label: Which shortcut?, options: [Poof, Poof-Latest, Poof-Pick, Poof-Peek] }
   - type: textarea
     id: what
     attributes: { label: What happened?, description: "Exact error text if you saw one, and which step (download, add, share sheet, running it)." }

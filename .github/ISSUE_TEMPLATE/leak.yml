@@ -23,7 +23,7 @@ body:
     id: path
     attributes:
       label: How did you share it?
-      options: [Poof & Share from the Share sheet, Poof Latest (clipboard), Poof Pick, Other]
+      options: [Poof from the Share sheet, Poof-Latest (clipboard), Poof-Pick, Other]
   - type: textarea
     id: how
-    attributes: { label: How did you check?, description: "For example Poof Peek, the Photos info panel, a Mac." }
+    attributes: { label: How did you check?, description: "For example Poof-Peek, the Photos info panel, a Mac." }

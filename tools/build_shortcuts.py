@@ -19,14 +19,14 @@ def scrub(sc: Shortcut, source):
 
 
 def poof_and_share() -> Shortcut:
-    sc = Shortcut("Poof & Share", share_sheet=True)
+    sc = Shortcut("Poof", share_sheet=True)
     clean = scrub(sc, SHORTCUT_INPUT)
     sc.add("share", {"WFInput": clean.token()})
     return sc
 
 
 def poof_latest() -> Shortcut:
-    sc = Shortcut("Poof Latest", glyph="bolt")
+    sc = Shortcut("Poof-Latest", glyph="bolt")
     latest = sc.add("getlatestphotos", {"WFGetLatestPhotoCount": 1}, "Latest Photos")
     clean = scrub(sc, latest)
     sc.add("setclipboard", {"WFInput": clean.token()})
@@ -38,7 +38,7 @@ def poof_latest() -> Shortcut:
 
 
 def poof_pick() -> Shortcut:
-    sc = Shortcut("Poof Pick", glyph="photo")
+    sc = Shortcut("Poof-Pick", glyph="photo")
     picked = sc.add("selectphoto", {"WFSelectMultiplePhotos": True}, "Photos")
     clean = scrub(sc, picked)
     sc.add("setclipboard", {"WFInput": clean.token()})
@@ -47,7 +47,7 @@ def poof_pick() -> Shortcut:
 
 
 def poof_peek() -> Shortcut:
-    sc = Shortcut("Poof Peek", glyph="eye", share_sheet=True)
+    sc = Shortcut("Poof-Peek", glyph="eye", share_sheet=True)
     when = sc.add("properties.images", {"WFInput": SHORTCUT_INPUT,
                   "WFContentItemPropertyName": "Date Taken"}, "Date Taken")
     where = sc.add("properties.images", {"WFInput": SHORTCUT_INPUT,

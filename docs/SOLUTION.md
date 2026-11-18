@@ -5,15 +5,15 @@
 ## The bundle
 | Shortcut | Trigger | What it does |
 |---|---|---|
-| **Poof & Share** | Share sheet (images) | Scrub each selected image -> open share sheet again with clean copies. Original untouched. |
-| **Poof Latest** | Action Button / Back Tap / Control Center / Siri "Poof" | Scrub newest photo (or latest N) -> clipboard. Paste into any chatbot/chat. |
-| **Poof Pick** | Home Screen icon / widget | Pick photos -> scrub -> copy/share. For in-app uploads where the share sheet isn't reachable. |
-| **Poof Peek** | Share sheet or Siri | Shows what a photo *is leaking* (location, date, device) in a friendly alert. Educational + QA. |
-| Automation recipe | Open WhatsApp/ChatGPT/Claude/Gemini | Auto-run *Poof Latest* so the clipboard already holds a clean photo. |
+| **Poof** | Share sheet (images) | Scrub each selected image -> open share sheet again with clean copies. Original untouched. |
+| **Poof-Latest** | Action Button / Back Tap / Control Center / Siri "Poof" | Scrub newest photo (or latest N) -> clipboard. Paste into any chatbot/chat. |
+| **Poof-Pick** | Home Screen icon / widget | Pick photos -> scrub -> copy/share. For in-app uploads where the share sheet isn't reachable. |
+| **Poof-Peek** | Share sheet or Siri | Shows what a photo *is leaking* (location, date, device) in a friendly alert. Educational + QA. |
+| Automation recipe | Open WhatsApp/ChatGPT/Claude/Gemini | Auto-run *Poof-Latest* so the clipboard already holds a clean photo. |
 
-## Flow (Poof & Share)
+## Flow (Poof)
 ```
-Share sheet -> tap "Poof & Share"
+Share sheet -> tap "Poof"
    -> [Repeat each image] Convert Image (Match Input, Preserve Metadata = OFF)
    -> Rename "poof-<n>" (kills filename-embedded dates like IMG_20261116)
    -> Share (clean copies) -> user picks WhatsApp / Messages / ChatGPT as usual

@@ -10,10 +10,9 @@ jobs:
     environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
     steps:
       - uses: actions/checkout@v4
-      - name: Assemble site (page + signed shortcuts)
+      - name: Assemble site (the shortcuts are downloaded from the GitHub Release, so they are counted)
         run: |
           mkdir _site && cp -R site/* _site/
-          for f in build/*.shortcut; do case "$f" in *unsigned*) ;; *) cp "$f" _site/;; esac; done
           ls -l _site
       - uses: actions/upload-pages-artifact@v3
       - id: d

@@ -43,7 +43,7 @@ class Builder(unittest.TestCase):
         for fn in bs.ALL:
             sc = fn()
             conv = [a for a in sc.actions if a["WFWorkflowActionIdentifier"].endswith("image.convert")]
-            if sc.name == "Poof Peek":
+            if sc.name == "Poof-Peek":
                 self.assertFalse(conv); continue
             self.assertEqual(len(conv), 1, sc.name)
             self.assertIs(conv[0]["WFWorkflowActionParameters"]["WFImagePreserveMetadata"], False)
@@ -56,6 +56,13 @@ class Builder(unittest.TestCase):
                 if a["WFWorkflowActionIdentifier"].endswith(("share", "setclipboard")):
                     inp = a["WFWorkflowActionParameters"]["WFInput"]["Value"]
                     self.assertEqual(inp["OutputUUID"], conv_uuid, sc.name)
+
+    def test_names_survive_github_release_renaming(self):
+        # GitHub turns spaces and "&" in asset names into dots, and the imported
+        # shortcut is named after the file, so names must be plain already.
+        import re
+        for fn in bs.ALL:
+            self.assertRegex(fn().name, r"^[A-Za-z0-9._-]+$")
 
     def test_share_sheet_flags(self):
         d = plistlib.loads(bs.poof_and_share().dumps())

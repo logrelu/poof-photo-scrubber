@@ -1,3 +1,4 @@
+.PHONY: test build fixtures mac-qa
 test:
 	python3 -m unittest discover -s tests -v
 build:
