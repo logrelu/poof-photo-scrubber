@@ -1,0 +1,29 @@
+name: Metadata leak
+description: A photo that went through Poof still shows a location, date or device.
+labels: [leak, P0]
+body:
+  - type: markdown
+    attributes:
+      value: "A leak is our top-priority bug. Please do NOT attach photos that show your real location."
+  - type: input
+    id: ios
+    attributes: { label: iOS version, placeholder: "26.1" }
+    validations: { required: true }
+  - type: input
+    id: device
+    attributes: { label: iPhone model }
+  - type: dropdown
+    id: leaked
+    attributes:
+      label: What still showed?
+      multiple: true
+      options: [Location, Date and time, Camera or phone model, Caption or keywords, Something else]
+    validations: { required: true }
+  - type: dropdown
+    id: path
+    attributes:
+      label: How did you share it?
+      options: [Poof & Share from the Share sheet, Poof Latest (clipboard), Poof Pick, Other]
+  - type: textarea
+    id: how
+    attributes: { label: How did you check?, description: "For example Poof Peek, the Photos info panel, a Mac." }

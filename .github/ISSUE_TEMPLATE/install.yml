@@ -1,0 +1,15 @@
+name: Won't install or won't run
+description: The shortcut failed to import, or fails when run.
+labels: [install]
+body:
+  - type: input
+    id: ios
+    attributes: { label: iOS version }
+    validations: { required: true }
+  - type: dropdown
+    id: which
+    attributes: { label: Which shortcut?, options: [Poof & Share, Poof Latest, Poof Pick, Poof Peek] }
+  - type: textarea
+    id: what
+    attributes: { label: What happened?, description: "Exact error text if you saw one, and which step (download, add, share sheet, running it)." }
+    validations: { required: true }

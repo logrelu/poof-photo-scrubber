@@ -1,0 +1,25 @@
+name: Device test report
+description: Tell us it worked (or didn't) on your phone. Takes 3 minutes.
+labels: [device-test]
+body:
+  - type: markdown
+    attributes:
+      value: "Steps: take a photo, run Poof Peek on it, share it with Poof & Share to yourself in Messages, save the received copy and run Poof Peek on that."
+  - type: input
+    id: ios
+    attributes: { label: iOS version, placeholder: "26.1" }
+    validations: { required: true }
+  - type: input
+    id: device
+    attributes: { label: iPhone model }
+  - type: dropdown
+    id: install
+    attributes: { label: Did it install?, options: [Yes, No] }
+    validations: { required: true }
+  - type: dropdown
+    id: stripped
+    attributes: { label: Were place and date gone from the received copy?, options: [Yes both gone, Location still there, Date still there, Both still there, Not sure] }
+    validations: { required: true }
+  - type: textarea
+    id: notes
+    attributes: { label: Anything else?, description: "Speed, photo looked different, other apps you tried." }
