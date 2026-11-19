@@ -1,1 +1,5 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security problem privately
+    url: https://github.com/logrelu/poof-photo-scrubber/security/advisories/new
+    about: For anything that could harm users. Ordinary leaks can use the form below.
