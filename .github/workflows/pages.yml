@@ -16,4 +16,4 @@ jobs:
           ls -l _site
       - uses: actions/upload-pages-artifact@v5
       - id: d
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
