@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: { name: github-pages, url: "${{ steps.d.outputs.page_url }}" }
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Assemble site (the shortcuts are downloaded from the GitHub Release, so they are counted)
         run: |
           mkdir _site && cp -R site/* _site/
