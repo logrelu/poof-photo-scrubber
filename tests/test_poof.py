@@ -64,6 +64,14 @@ class Builder(unittest.TestCase):
         for fn in bs.ALL:
             self.assertRegex(fn().name, r"^[A-Za-z0-9._-]+$")
 
+    def test_every_shortcut_starts_with_a_readable_intro(self):
+        for fn in bs.ALL:
+            sc = fn()
+            first = sc.actions[0]
+            self.assertTrue(first["WFWorkflowActionIdentifier"].endswith("comment"), sc.name)
+            self.assertIn("github.com/logrelu/poof-photo-scrubber",
+                          first["WFWorkflowActionParameters"]["WFCommentActionText"], sc.name)
+
     def test_share_sheet_flags(self):
         d = plistlib.loads(bs.poof_and_share().dumps())
         self.assertEqual(d["WFWorkflowTypes"], ["ActionExtension"])

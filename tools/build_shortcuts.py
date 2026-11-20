@@ -9,6 +9,15 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 
 
+REPO = "https://github.com/logrelu/poof-photo-scrubber"
+
+
+def intro(sc: Shortcut, what: str):
+    """First action: a Comment, so people can read what this is before tapping Add."""
+    sc.add("comment", {"WFCommentActionText":
+        f"{what}\n\nFree and open source. Nothing leaves your phone.\n{REPO}"})
+
+
 def scrub(sc: Shortcut, source):
     """THE engine: Convert Image, keep format, Preserve Metadata OFF."""
     return sc.add("image.convert", {
@@ -20,6 +29,7 @@ def scrub(sc: Shortcut, source):
 
 def poof_and_share() -> Shortcut:
     sc = Shortcut("Poof", share_sheet=True)
+    intro(sc, "Poof removes location, date and camera info from a photo before you share it. Share a photo, tap Poof, send the clean copy. Your original stays as it is.")
     clean = scrub(sc, SHORTCUT_INPUT)
     sc.add("share", {"WFInput": clean.token()})
     return sc
@@ -27,6 +37,7 @@ def poof_and_share() -> Shortcut:
 
 def poof_latest() -> Shortcut:
     sc = Shortcut("Poof-Latest", glyph="bolt")
+    intro(sc, "Poof-Latest copies your newest photo to the clipboard with location, date and camera info removed. Paste it into any app or chatbot.")
     latest = sc.add("getlatestphotos", {"WFGetLatestPhotoCount": 1}, "Latest Photos")
     clean = scrub(sc, latest)
     sc.add("setclipboard", {"WFInput": clean.token()})
@@ -39,6 +50,7 @@ def poof_latest() -> Shortcut:
 
 def poof_pick() -> Shortcut:
     sc = Shortcut("Poof-Pick", glyph="photo")
+    intro(sc, "Poof-Pick lets you choose photos, then gives you clean copies (no location, date or camera info) to copy or share.")
     picked = sc.add("selectphoto", {"WFSelectMultiplePhotos": True}, "Photos")
     clean = scrub(sc, picked)
     sc.add("setclipboard", {"WFInput": clean.token()})
@@ -48,6 +60,7 @@ def poof_pick() -> Shortcut:
 
 def poof_peek() -> Shortcut:
     sc = Shortcut("Poof-Peek", glyph="eye", share_sheet=True)
+    intro(sc, "Poof-Peek shows the place, time and phone hiding in a photo. Use it to check that Poof worked.")
     when = sc.add("properties.images", {"WFInput": SHORTCUT_INPUT,
                   "WFContentItemPropertyName": "Date Taken"}, "Date Taken")
     where = sc.add("properties.images", {"WFInput": SHORTCUT_INPUT,
